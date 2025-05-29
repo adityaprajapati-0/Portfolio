@@ -42,7 +42,7 @@ const Contact = () => {
           to_name: "Aditya",
           to_email: "adityaprajapati1234567@gmail.com",
           reply_to: formData.email, // User's email for reply-to
-          message: `You received a new message from ${formData.name} (${formData.email}):\n\n${formData.message}`,
+          message: `You received a new message from : ${formData.name} (${formData.email}):\n\n${formData.message}`,
         },
         "FJ75i1g53zFfLo1_6" // Replace with your public key
       );
