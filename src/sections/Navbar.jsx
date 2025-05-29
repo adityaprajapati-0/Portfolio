@@ -1,58 +1,84 @@
 import { useState } from "react";
 import { motion } from "motion/react";
+
 function Navigation() {
   return (
-    <ul className="nav-ul">
-      <li className="nav-li">
-        <a className="nav-link" href="#home">
+    <ul className="flex space-x-8 items-center m-0 p-0 list-none">
+      <li>
+        <a
+          href="#home"
+          className="text-neutral-400 hover:text-white transition"
+        >
           Home
         </a>
       </li>
-      <li className="nav-li">
-        <a className="nav-link" href="#about">
+      <li>
+        <a
+          href="#about"
+          className="text-neutral-400 hover:text-white transition"
+        >
           About
         </a>
       </li>
-      <li className="nav-li">
-        <a className="nav-link" href="#work">
+      <li>
+        <a
+          href="#work"
+          className="text-neutral-400 hover:text-white transition"
+        >
           Work
         </a>
       </li>
-      <li className="nav-li">
-        <a className="nav-link" href="#contact">
+      <li>
+        <a
+          href="#contact"
+          className="text-neutral-400 hover:text-white transition"
+        >
           Contact
         </a>
       </li>
     </ul>
   );
 }
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div className="fixed inset-x-0 z-20 w-full backdrop-blur-lg bg-primary/40">
-      <div className="mx-auto c-space max-w-7xl">
-        <div className="flex items-center justify-between py-2 sm:py-0">
+      <div className="w-full">
+        <div className="flex items-center justify-between py-2 px-4">
+          {/* Logo and name */}
           <a
             href="/"
-            className="text-xl font-bold transition-colors text-neutral-400 hover:text-white"
-          >
-            Adi
-          </a>
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="flex cursor-pointer text-neutral-400 hover:text-white focus:outline-none sm:hidden"
+            className="flex items-center space-x-4 text-xl font-bold text-neutral-400 hover:text-white"
           >
             <img
-              src={isOpen ? "assets/close.svg" : "assets/menu.svg"}
-              className="w-6 h-6"
-              alt="toggle"
+              src="/myprofile.png"
+              alt="Logo"
+              className="w-12 h-12 object-contain ml-1"
             />
-          </button>
-          <nav className="hidden sm:flex">
-            <Navigation />
-          </nav>
+            <span>Adi</span>
+          </a>
+
+          {/* Navigation and hamburger */}
+          <div className="flex items-center">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="sm:hidden text-neutral-400 hover:text-white focus:outline-none"
+            >
+              <img
+                src={isOpen ? "assets/close.svg" : "assets/menu.svg"}
+                className="w-6 h-6"
+                alt="toggle"
+              />
+            </button>
+            <nav className="hidden sm:flex ml-8">
+              <Navigation />
+            </nav>
+          </div>
         </div>
       </div>
+
       {isOpen && (
         <motion.div
           className="block overflow-hidden text-center sm:hidden"

@@ -33,19 +33,20 @@ const Contact = () => {
     setIsLoading(true);
 
     try {
-      console.log("Form submitted:", formData);
       await emailjs.send(
-        "service_lmhycgf",         
-        "template_o608vuz", 
+        "service_lmhycgf", // Replace with your service ID
+        "template_v16cq8t", // Replace with your template ID
         {
           from_name: formData.name,
+          from_email: "noreply@yourdomain.com", // Fixed email (not used by Gmail)
           to_name: "Aditya",
-          from_email: formData.email,
           to_email: "adityaprajapati1234567@gmail.com",
-          message: formData.message,
+          reply_to: formData.email, // User's email for reply-to
+          message: `You received a new message from ${formData.name} (${formData.email}):\n\n${formData.message}`,
         },
-        "FJ75i1g53zFfLo1_6"
+        "FJ75i1g53zFfLo1_6" // Replace with your public key
       );
+
       setIsLoading(false);
       setFormData({ name: "", email: "", message: "" });
       showAlertMessage("success", "Your message has been sent!");
@@ -104,7 +105,7 @@ const Contact = () => {
               name="email"
               type="email"
               className="field-input field-input-focus"
-              placeholder="JohnDoe@email.com"
+              placeholder="john@example.com"
               autoComplete="email"
               value={formData.email}
               onChange={handleChange}
