@@ -72,7 +72,7 @@ const Navbar = () => {
             <div className="relative hidden sm:block" ref={dropdownRef}>
               <button
                 onClick={() => setIsOpenDropdown(!isOpenDropdown)}
-                className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white font-semibold py-2 px-5 rounded-lg shadow-lg hover:brightness-110 transition flex items-center gap-2"
+                className="py-2 px-5 text-white font-semibold rounded-lg shadow-lg cursor-pointer bg-radial from-lavender to-royal hover-animation transition flex items-center gap-2"
                 aria-haspopup="true"
                 aria-expanded={isOpenDropdown}
               >
