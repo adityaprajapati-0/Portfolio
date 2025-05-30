@@ -237,12 +237,12 @@ export const mySocials = [
   {
     name: "Github",
     href: "https://github.com/adityaprajapati-0",
-    icon: "/assets/socials/github.png",
+    icon: "/assets/socials/github.svg",
   },
   {
     name: "Twitter",
     href: "https://x.com/PrajapatiAdi_",
-    icon: "/assets/socials/twitter.png",
+    icon: "/assets/socials/twitter.svg",
   },
 ];
 
