@@ -5,24 +5,16 @@ function Navigation() {
   return (
     <ul className="flex space-x-8 items-center m-0 p-0 list-none">
       <li>
-        <a href="#home" className="text-neutral-400 hover:text-white transition">
-          Home
-        </a>
+        <a href="#home" className="text-neutral-400 hover:text-white transition">Home</a>
       </li>
       <li>
-        <a href="#about" className="text-neutral-400 hover:text-white transition">
-          About
-        </a>
+        <a href="#about" className="text-neutral-400 hover:text-white transition">About</a>
       </li>
       <li>
-        <a href="#work" className="text-neutral-400 hover:text-white transition">
-          Work
-        </a>
+        <a href="#work" className="text-neutral-400 hover:text-white transition">Work</a>
       </li>
       <li>
-        <a href="#contact" className="text-neutral-400 hover:text-white transition">
-          Contact
-        </a>
+        <a href="#contact" className="text-neutral-400 hover:text-white transition">Contact</a>
       </li>
     </ul>
   );
@@ -78,9 +70,7 @@ const Navbar = () => {
               >
                 Resume
                 <svg
-                  className={`w-4 h-4 transition-transform duration-300 ${
-                    isOpenDropdown ? "rotate-180" : "rotate-0"
-                  }`}
+                  className={`w-4 h-4 transition-transform duration-300 ${isOpenDropdown ? "rotate-180" : "rotate-0"}`}
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="2"
@@ -100,6 +90,7 @@ const Navbar = () => {
                     transition={{ duration: 0.3, ease: "easeOut" }}
                     className="absolute right-0 mt-3 w-52 bg-gradient-to-br from-purple-900 via-indigo-900 to-pink-900 rounded-xl shadow-[0_10px_30px_rgba(139,92,246,0.6)] z-50 overflow-hidden border border-purple-700"
                   >
+                    {/* View Resume */}
                     <a
                       href="/Aditya-Resume.pdf"
                       target="_blank"
@@ -107,6 +98,7 @@ const Navbar = () => {
                       className="flex items-center gap-3 px-6 py-3 text-purple-300 hover:text-white hover:bg-purple-700 transition transform hover:scale-105 cursor-pointer"
                       onClick={() => setIsOpenDropdown(false)}
                     >
+                      {/* Eye Icon */}
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="w-5 h-5 text-indigo-400"
@@ -115,16 +107,20 @@ const Navbar = () => {
                         stroke="currentColor"
                         strokeWidth={2}
                       >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 10l4.553-2.276A2 2 0 0122 9.618v4.764a2 2 0 01-2.447 1.894L15 14m-6 0l-4.553 2.276A2 2 0 012 14.382v-4.764a2 2 0 012.447-1.894L9 10m6 0v4m-6-4v4m3 4v-4m-3 0h6" />
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                       </svg>
                       View Resume
                     </a>
+
+                    {/* Download Resume */}
                     <a
                       href="/Aditya-Resume.pdf"
                       download="Aditya-Resume.pdf"
                       className="flex items-center gap-3 px-6 py-3 text-purple-300 hover:text-white hover:bg-purple-700 transition transform hover:scale-105 cursor-pointer"
                       onClick={() => setIsOpenDropdown(false)}
                     >
+                      {/* Correct Download Icon */}
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="w-5 h-5 text-pink-400"
@@ -133,7 +129,7 @@ const Navbar = () => {
                         stroke="currentColor"
                         strokeWidth={2}
                       >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M12 12v8m0-8l-4 4m4-4l4 4M12 4v8" />
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 4v12" />
                       </svg>
                       Download Resume
                     </a>
