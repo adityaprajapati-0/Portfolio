@@ -60,8 +60,20 @@ const Navbar = () => {
             <span>Adi</span>
           </a>
 
-          {/* Navigation and hamburger */}
-          <div className="flex items-center">
+          {/* Navigation and resume button */}
+          <div className="flex items-center space-x-4">
+            <nav className="hidden sm:flex">
+              <Navigation />
+            </nav>
+            {/* Resume Download Button */}
+            <a
+              href="/Aditya-Resume.pdf"
+              download="Aditya-Resume.pdf"
+              className="hidden sm:inline-block bg-blue-600 text-white font-semibold py-1.5 px-4 rounded hover:bg-blue-700 transition"
+            >
+              Resume
+            </a>
+            {/* Hamburger Icon */}
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="sm:hidden text-neutral-400 hover:text-white focus:outline-none"
@@ -72,13 +84,11 @@ const Navbar = () => {
                 alt="toggle"
               />
             </button>
-            <nav className="hidden sm:flex ml-8">
-              <Navigation />
-            </nav>
           </div>
         </div>
       </div>
 
+      {/* Mobile Nav */}
       {isOpen && (
         <motion.div
           className="block overflow-hidden text-center sm:hidden"
@@ -89,6 +99,14 @@ const Navbar = () => {
         >
           <nav className="pb-5">
             <Navigation />
+            {/* Resume button on mobile */}
+            <a
+              href="/Aditya-Resume.pdf"
+              download="Aditya-Resume.pdf"
+              className="inline-block mt-4 bg-blue-600 text-white font-semibold py-2 px-4 rounded hover:bg-blue-700 transition"
+            >
+              Download Resume
+            </a>
           </nav>
         </motion.div>
       )}
