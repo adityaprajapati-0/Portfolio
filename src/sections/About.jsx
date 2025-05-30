@@ -1,118 +1,166 @@
-import { useRef } from "react";
-import Card from "../components/Card";
-import { Globe } from "../components/globe";
-import CopyEmailButton from "../components/CopyEmailButton";
-import { Frameworks } from "../components/FrameWorks";
+import { useState, useRef, useEffect } from "react";
+import { motion } from "motion/react";
 
-const About = () => {
-  const grid2Container = useRef();
+function Navigation() {
   return (
-    <section className="c-space section-spacing" id="about">
-      <h2 className="text-heading">About Me</h2>
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-6 md:auto-rows-[18rem] mt-12">
-        {/* Grid 1 */}
-        <div className="flex items-end grid-default-color grid-1 relative">
-          <img
-            src="/myprofile.png"
-            className="absolute scale-[1.75] -right-[5rem] -top-[1rem] md:scale-[3] md:left-50 md:inset-y-10 lg:scale-[2.5]"
-          />
-          <div className="z-10">
-            <p className="headtext">Hi, I'm Aditya Prajapati</p>
-            <p className="subtext">
-              I am a BCA Student, I developed my frontend and backend dev
-              skills to deliver dynamic and software and web applications.
-            </p>
-          </div>
-          <div className="absolute inset-x-0 pointer-evets-none -bottom-4 h-1/2 sm:h-1/3 bg-gradient-to-t from-indigo" />
-        </div>
-        {/* Grid 2 */}
-        <div className="grid-default-color grid-2">
-          <div
-            ref={grid2Container}
-            className="flex items-center justify-center w-full h-full"
+    <ul className="flex space-x-8 items-center m-0 p-0 list-none">
+      <li>
+        <a href="#home" className="text-neutral-400 hover:text-white transition">
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="#about" className="text-neutral-400 hover:text-white transition">
+          About
+        </a>
+      </li>
+      <li>
+        <a href="#work" className="text-neutral-400 hover:text-white transition">
+          Work
+        </a>
+      </li>
+      <li>
+        <a href="#contact" className="text-neutral-400 hover:text-white transition">
+          Contact
+        </a>
+      </li>
+    </ul>
+  );
+}
+
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isOpenDropdown, setIsOpenDropdown] = useState(false);
+  const dropdownRef = useRef(null);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsOpenDropdown(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  return (
+    <div className="fixed inset-x-0 z-20 w-full backdrop-blur-lg bg-primary/40">
+      <div className="w-full">
+        <div className="flex items-center justify-between py-2 px-4">
+          {/* Logo and name */}
+          <a
+            href="/"
+            className="flex items-center space-x-4 text-xl font-bold text-neutral-400 hover:text-white"
           >
-            <p className="flex items-end text-5xl text-gray-500">
-              CODE IS CRAFT
-            </p>
-            <Card
-              style={{ rotate: "75deg", top: "30%", left: "20%" }}
-              text="C++"
-              containerRef={grid2Container}
+            <img
+              src="/myprofile.png"
+              alt="Logo"
+              className="w-12 h-12 object-contain ml-1"
             />
-            <Card
-              style={{ rotate: "-30deg", top: "60%", left: "45%" }}
-              text="Java"
-              containerRef={grid2Container}
-            />
-            <Card
-              style={{ rotate: "90deg", bottom: "30%", left: "70%" }}
-              text="React"
-              containerRef={grid2Container}
-            />
-            <Card
-              style={{ rotate: "-45deg", top: "55%", left: "0%" }}
-              text="Data Structures"
-              containerRef={grid2Container}
-            />
-            <Card
-              style={{ rotate: "20deg", top: "10%", left: "38%" }}
-              text="Three js"
-              containerRef={grid2Container}
-            />
-            <Card
-              style={{ rotate: "30deg", top: "70%", left: "70%" }}
-              image="assets/logos/csharp-pink.png"
-              containerRef={grid2Container}
-            />
-            <Card
-              style={{ rotate: "-45deg", top: "70%", left: "25%" }}
-              image="assets/logos/dotnet-pink.png"
-              containerRef={grid2Container}
-            />
-            <Card
-              style={{ rotate: "-45deg", top: "5%", left: "10%" }}
-              image="assets/logos/blazor-pink.png"
-              containerRef={grid2Container}
-            />
-          </div>
-        </div>
-        {/* Grid 3 */}
-        <div className="grid-black-color grid-3">
-          <div className="z-10 w-[50%]">
-            <p className="headtext">Time Zone</p>
-            <p className="subtext">
-              I'm from Bihar, and open to remote work worldwide
-            </p>
-          </div>
-          <figure className="absolute left-[30%] top-[10%]">
-            <Globe />
-          </figure>
-        </div>
-        {/* Grid 4 */}
-        <div className="grid-special-color grid-4">
-          <div className="flex flex-col items-center justify-center gap-4 size-full">
-            <p className="text-center headtext">
-              Do you want to start a project together?
-            </p>
-            <CopyEmailButton />
-          </div>
-        </div>
-        {/* Grid 5 */}
-        <div className="grid-default-color grid-5">
-          <div className="z-10 w-[50%]">
-            <p className="headText">Teck Stack</p>
-            <p className="subtext">
-              I specialize in a variety of languages, frameworks, and tools that
-              allow me to build robust and scalable applications
-            </p>
-          </div>
-          <div className="absolute inset-y-0 md:inset-y-9 w-full h-full start-[50%] md:scale-125">
-            <Frameworks />
+            <span>Adi</span>
+          </a>
+
+          {/* Navigation and resume dropdown */}
+          <div className="flex items-center space-x-4">
+            <nav className="hidden sm:flex">
+              <Navigation />
+            </nav>
+
+            {/* Resume Dropdown Button with custom darker gradient */}
+            <div className="relative hidden sm:block" ref={dropdownRef}>
+              <button
+                onClick={() => setIsOpenDropdown(!isOpenDropdown)}
+                style={{
+                  background: "linear-gradient(90deg, #2a0555, #45115f, #7a2c6e)",
+                }}
+                className="text-white font-semibold py-2 px-5 rounded-lg shadow-lg hover:brightness-90 transition flex items-center gap-2"
+                aria-haspopup="true"
+                aria-expanded={isOpenDropdown}
+              >
+                Resume
+                <svg
+                  className={`w-4 h-4 transition-transform duration-300 ${
+                    isOpenDropdown ? "rotate-180" : "rotate-0"
+                  }`}
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </button>
+
+              {isOpenDropdown && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.25 }}
+                  className="absolute right-0 mt-2 w-40 rounded-md shadow-lg bg-gradient-to-br from-purple-700 via-indigo-800 to-pink-700 text-white ring-1 ring-black ring-opacity-5"
+                >
+                  <a
+                    href="/Aditya-Resume.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block px-4 py-2 hover:bg-purple-800 transition cursor-pointer rounded-t-md"
+                    onClick={() => setIsOpenDropdown(false)}
+                  >
+                    View Resume
+                  </a>
+                  <a
+                    href="/Aditya-Resume.pdf"
+                    download="Aditya-Resume.pdf"
+                    className="block px-4 py-2 hover:bg-pink-800 transition cursor-pointer rounded-b-md"
+                    onClick={() => setIsOpenDropdown(false)}
+                  >
+                    Download Resume
+                  </a>
+                </motion.div>
+              )}
+            </div>
+
+            {/* Hamburger Icon */}
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="sm:hidden text-neutral-400 hover:text-white focus:outline-none"
+            >
+              <img
+                src={isOpen ? "assets/close.svg" : "assets/menu.svg"}
+                className="w-6 h-6"
+                alt="toggle"
+              />
+            </button>
           </div>
         </div>
       </div>
-    </section>
+
+      {/* Mobile Nav */}
+      {isOpen && (
+        <motion.div
+          className="block overflow-hidden text-center sm:hidden"
+          initial={{ opacity: 0, x: -10 }}
+          animate={{ opacity: 1, x: 0 }}
+          style={{ maxHeight: "100vh" }}
+          transition={{ duration: 1 }}
+        >
+          <nav className="pb-5">
+            <Navigation />
+            {/* Resume Download Button on Mobile */}
+            <a
+              href="/Aditya-Resume.pdf"
+              download="Aditya-Resume.pdf"
+              className="inline-block bg-indigo-900 text-white font-semibold py-2 px-5 rounded-lg shadow-lg hover:brightness-90 transition"
+            >
+              Download Resume
+            </a>
+          </nav>
+        </motion.div>
+      )}
+    </div>
   );
 };
 
-export default About;
+export default Navbar;
