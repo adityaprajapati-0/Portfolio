@@ -2,18 +2,23 @@ import { useState } from "react";
 import Project from "../components/Project";
 import { myProjects } from "../constants";
 import { motion, useMotionValue, useSpring } from "motion/react";
+
 const Projects = () => {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const springX = useSpring(x, { damping: 10, stiffness: 50 });
   const springY = useSpring(y, { damping: 10, stiffness: 50 });
+
   const handleMouseMove = (e) => {
     x.set(e.clientX + 20);
     y.set(e.clientY + 20);
   };
+
   const [preview, setPreview] = useState(null);
+
   return (
     <section
+      id="work" // This id is critical for anchor linking to work
       onMouseMove={handleMouseMove}
       className="relative c-space section-spacing"
     >

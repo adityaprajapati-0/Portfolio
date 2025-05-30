@@ -34,17 +34,17 @@ const Contact = () => {
 
     try {
       await emailjs.send(
-        "service_lmhycgf", 
-        "template_v16cq8t", 
+        "service_lmhycgf",
+        "template_v16cq8t",
         {
           from_name: formData.name,
-          from_email: "noreply@yourdomain.com", 
+          from_email: "noreply@yourdomain.com",
           to_name: "Aditya",
           to_email: "adityaprajapati1234567@gmail.com",
-          reply_to: formData.email, 
+          reply_to: formData.email,
           message: `You received a new message from : ${formData.name} (${formData.email}):\n\n${formData.message}`,
         },
-        "FJ75i1g53zFfLo1_6" 
+        "FJ75i1g53zFfLo1_6"
       );
 
       setIsLoading(false);
@@ -58,7 +58,10 @@ const Contact = () => {
   };
 
   return (
-    <section className="relative flex items-center c-space section-spacing">
+    <section
+      id="contact"
+      className="relative flex items-center c-space section-spacing"
+    >
       <Particles
         className="absolute inset-0 -z-50"
         quantity={100}
