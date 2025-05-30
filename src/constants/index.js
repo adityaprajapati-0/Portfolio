@@ -234,6 +234,11 @@ export const mySocials = [
     href: "https://www.instagram.com/adixdd_?igsh=MWFkeXBiY2I2dDRvcg==",
     icon: "/assets/socials/instagram.svg",
   },
+  {
+    name: "Instagram",
+    href: "https://github.com/adityaprajapati-0",
+    icon: "/assets/socials/github.png",
+  },
 ];
 
 export const experiences = [

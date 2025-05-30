@@ -34,17 +34,17 @@ const Contact = () => {
 
     try {
       await emailjs.send(
-        "service_lmhycgf", // Replace with your service ID
-        "template_v16cq8t", // Replace with your template ID
+        "service_lmhycgf", 
+        "template_v16cq8t", 
         {
           from_name: formData.name,
-          from_email: "noreply@yourdomain.com", // Fixed email (not used by Gmail)
+          from_email: "noreply@yourdomain.com", 
           to_name: "Aditya",
           to_email: "adityaprajapati1234567@gmail.com",
-          reply_to: formData.email, // User's email for reply-to
+          reply_to: formData.email, 
           message: `You received a new message from : ${formData.name} (${formData.email}):\n\n${formData.message}`,
         },
-        "FJ75i1g53zFfLo1_6" // Replace with your public key
+        "FJ75i1g53zFfLo1_6" 
       );
 
       setIsLoading(false);
