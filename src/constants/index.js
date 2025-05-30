@@ -235,9 +235,14 @@ export const mySocials = [
     icon: "/assets/socials/instagram.svg",
   },
   {
-    name: "Instagram",
+    name: "Github",
     href: "https://github.com/adityaprajapati-0",
     icon: "/assets/socials/github.png",
+  },
+  {
+    name: "Twitter",
+    href: "https://x.com/PrajapatiAdi_",
+    icon: "/assets/socials/twitter.png",
   },
 ];
 
