@@ -2,6 +2,7 @@ import { useState } from "react";
 import Project from "../components/Project";
 import { myProjects } from "../constants";
 import { motion, useMotionValue, useSpring } from "motion/react";
+import { Particles } from "../components/Particles"; // <-- Import Particles
 
 const Projects = () => {
   const x = useMotionValue(0);
@@ -20,8 +21,17 @@ const Projects = () => {
     <section
       id="work" // This id is critical for anchor linking to work
       onMouseMove={handleMouseMove}
-      className="relative c-space section-spacing"
+      className="relative c-space section-spacing"  // <-- add relative here
     >
+      {/* Particle Background */}
+      <Particles
+        className="absolute inset-0 -z-50"
+        quantity={100}
+        ease={80}
+        color={"#ffffff"}
+        refresh
+      />
+
       <h2 className="text-heading">My Selected Projects</h2>
       <div className="bg-gradient-to-r from-transparent via-neutral-700 to-transparent mt-12 h-[1px] w-full" />
       {myProjects.map((project) => (
