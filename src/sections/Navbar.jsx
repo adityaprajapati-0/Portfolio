@@ -68,7 +68,7 @@ const Navbar = () => {
               <Navigation />
             </nav>
 
-            {/* Resume Dropdown Button */}
+            {/* Resume Dropdown Button (Desktop) */}
             <div className="relative hidden sm:block" ref={dropdownRef}>
               <button
                 onClick={() => setIsOpenDropdown(!isOpenDropdown)}
@@ -111,7 +111,6 @@ const Navbar = () => {
                       className="flex items-center gap-3 px-6 py-3 text-purple-300 hover:text-white hover:bg-purple-700 transition transform hover:scale-105 cursor-pointer"
                       onClick={() => setIsOpenDropdown(false)}
                     >
-                      {/* Eye Icon */}
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="w-5 h-5 text-indigo-400"
@@ -140,7 +139,6 @@ const Navbar = () => {
                       className="flex items-center gap-3 px-6 py-3 text-purple-300 hover:text-white hover:bg-purple-700 transition transform hover:scale-105 cursor-pointer"
                       onClick={() => setIsOpenDropdown(false)}
                     >
-                      {/* Download Icon */}
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="w-5 h-5 text-pink-400"
@@ -193,16 +191,50 @@ const Navbar = () => {
                 href="/Aditya-Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block mx-auto w-4/5 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white font-semibold py-2 px-5 rounded-lg shadow-lg hover:brightness-110 transition"
+                className="flex items-center gap-3 justify-center mx-auto w-4/5 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white font-semibold py-2 px-5 rounded-lg shadow-lg hover:brightness-110 transition"
               >
-                🔍 View Resume
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-5 h-5 text-white"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                  />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                  />
+                </svg>
+                View Resume
               </a>
+
               <a
                 href="/Aditya-Resume.pdf"
                 download="Aditya-Resume.pdf"
-                className="block mx-auto w-4/5 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white font-semibold py-2 px-5 rounded-lg shadow-lg hover:brightness-110 transition"
+                className="flex items-center gap-3 justify-center mx-auto w-4/5 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white font-semibold py-2 px-5 rounded-lg shadow-lg hover:brightness-110 transition"
               >
-                ⬇ Download Resume
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-5 h-5 text-white"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 4v12"
+                  />
+                </svg>
+                Download Resume
               </a>
             </div>
           </nav>
